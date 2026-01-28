@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Geografie</title>
+</head>
+<body>
+
+<h2>Geografie</h2>
+<p id="question">Klicke auf „Neue Frage“, um zu starten.</p>
+<input type="text" id="answer" placeholder="hier antworten">
+<br><br>
+<button onclick="newQuestion()">Neue Frage</button>
+<button onclick="checkAnswer()">Lösung überprüfen</button>
+<p id="feedback"></p>
+
+<script>
+  const questions = [
+    {
+      question: "Was ist die Hauptstadt von Australien?",
+      answer: "Canberra"
+    },
+    {
+      question: "Welcher Kontinent hat die geringste Bevölkerungsanzahl?",
+      answer: "Antarktika"
+    },
+    {
+      question: "Wie heißt die größte Insel der Welt, die kein Kontinent ist?",
+      answer: "Grönland"
+    }
+  ];
+
+  let currentQuestion = null;
+
+  function newQuestion() {
+    const randomIndex = Math.floor(Math.random() * questions.length);
+    currentQuestion = questions[randomIndex];
+    document.getElementById("question").textContent = currentQuestion.question;
+    document.getElementById("answer").value = "";
+    document.getElementById("feedback").textContent = "";
+  }
+
+  function checkAnswer() {
+    const userAnswer = document.getElementById("answer").value.trim();
+    if (!currentQuestion) {
+      document.getElementById("feedback").textContent = "Bitte zuerst eine Frage auswählen.";
+      return;
+    }
+    if (userAnswer.toLowerCase() === currentQuestion.answer.toLowerCase()) {
+      document.getElementById("feedback").textContent = "Richtig!🎉";
+    } else {
+      document.getElementById("feedback").textContent = "Leider falsch. Die richtige Antwort ist: " + currentQuestion.answer;
+    }
+  }
+</script>
+
+</body>
+</html>
+      
