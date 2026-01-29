@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz beendet 🎉</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .end-container {
+            background: rgba(0, 0, 0, 0.25);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: fadeIn 1.2s ease;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-weight: normal;
+            margin-bottom: 30px;
+        }
+
+        .fact {
+            background: rgba(255,255,255,0.15);
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        button {
+            background: #00e6a8;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        button:hover {
+            background: #00c896;
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="end-container">
+    <h1>🎉 Du hast es geschafft!</h1>
+    <h2>Danke fürs Mitmachen 👏</h2>
+
+    <div class="fact" id="fact">
+        Wusstest du schon...?
+    </div>
+
+    <button onclick="restartQuiz()">🔁 Quiz neu starten</button>
+</div>
+
+<script>
+    const facts = [
+    "Wusstest du, dass ein Oktopus drei Herzen hat?",
+    "Wusstest du, dass Honig niemals schlecht wird?",
+    "Wusstest du, dass Bananen eigentlich Beeren sind?",
+    "Wusstest du, dass ein Tag auf der Venus länger ist als ein Jahr dort?",
+    "Wusstest du, dass Haie schon existierten, bevor es Bäume gab?"
+];
+
+
+    const randomFact = facts[Math.floor(Math.random() * facts.length)];
+    document.getElementById("fact").textContent = randomFact;
+
+    function restartQuiz() {
+        // Hier kannst du später auf dein Quiz verlinken
+        window.location.href = "index.html";
+    }
+</script>
+
+</body>
+</html>
